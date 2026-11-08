@@ -1,0 +1,19 @@
+services:
+  - type: web
+    name: nawafidh-browser
+    runtime: docker
+    plan: standard
+    healthCheckPath: /health
+    envVars:
+      - key: APP_PASSWORD
+        sync: false
+      - key: COOKIE_SECURE
+        value: "1"
+      - key: FB_MANAGER_DATA
+        value: /app/data/persistent
+      - key: MAX_ACTIVE_SESSIONS
+        value: "2"
+    disk:
+      name: browser-sessions
+      mountPath: /app/data/persistent
+      sizeGB: 1
