@@ -1,0 +1,26 @@
+{
+  "name": "نوافذ — متصفح الهاتف",
+  "build": {
+    "dockerfile": "../Dockerfile",
+    "context": ".."
+  },
+  "remoteUser": "appuser",
+  "overrideCommand": true,
+  "init": true,
+  "forwardPorts": [10000],
+  "portsAttributes": {
+    "10000": {
+      "label": "نوافذ — افتح الأداة هنا",
+      "onAutoForward": "notify",
+      "protocol": "http"
+    }
+  },
+  "postStartCommand": "python .devcontainer/start.py",
+  "customizations": {
+    "vscode": {
+      "settings": {
+        "workbench.startupEditor": "readme"
+      }
+    }
+  }
+}

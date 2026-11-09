@@ -2,7 +2,7 @@
 FROM python:3.12-slim-bookworm
 WORKDIR /app
 RUN apt-get update \
-    && apt-get install -y --no-install-recommends chromium ca-certificates fonts-noto-core fonts-noto-color-emoji \
+    && apt-get install -y --no-install-recommends chromium git ca-certificates fonts-noto-core fonts-noto-color-emoji \
     && rm -rf /var/lib/apt/lists/* \
     && useradd --create-home appuser
 COPY requirements.txt .
